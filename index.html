@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Google Sheet Cell Fetch</title>
+  <link rel="stylesheet" href="style.css">
+  
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0d6efd">
+  <link rel="icon" href="icons/icon-192.png" sizes="192x192">
+</head>
+<body>
+  <h2>Fetch Cell Value from Google Sheet</h2>
+
+  <input type="text" id="cellInput" placeholder="Enter cell (e.g., A1)" />
+  <input type="text" id="cellValue" placeholder="Cell value will appear here" />
+
+  <button id="updateBtn">Update</button>
+
+  <script src="script.js"></script>
+
+  <!-- ✅ Add this service worker script just before </body> -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(reg => console.log("✅ Service Worker registered", reg))
+        .catch(err => console.error("❌ SW registration failed", err));
+    }
+  </script>
+</body>
+</html>
